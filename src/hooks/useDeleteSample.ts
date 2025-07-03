@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const deleteSample = async (id: string) => {
   const res = await fetch(`http://127.0.0.1:8000/biosamples/${id}`, {
@@ -14,7 +14,11 @@ export const deleteSample = async (id: string) => {
 };
 
 export const useDeleteSample = () => {
+  const qc = useQueryClient();
   return useMutation({
     mutationFn: (id: string) => deleteSample(id),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["samples"] });
+    },
   });
 };

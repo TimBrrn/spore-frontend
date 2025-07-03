@@ -18,8 +18,9 @@ export const useUpdateSample = () => {
   return useMutation({
     mutationFn: ({ id, data }: { id: number; data: any }) =>
       updateSample(id, data),
-    onSuccess: () => {
+    onSuccess: (_, id) => {
       qc.invalidateQueries({ queryKey: ["samples"] });
+      qc.invalidateQueries({ queryKey: ["samples", id] });
     },
     onError: () => toast.error("La mise à jour a échoué"),
   });
