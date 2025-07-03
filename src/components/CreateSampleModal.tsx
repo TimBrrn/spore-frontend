@@ -50,7 +50,10 @@ export const AddSampleModal = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="destructive" className="min-w-40 min-h-14 btn-animate">
+        <Button
+          variant="destructive"
+          className="min-w-40 min-h-14 btn-animate text-md"
+        >
           Add Sample
         </Button>
       </DialogTrigger>

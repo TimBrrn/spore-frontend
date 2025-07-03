@@ -1,12 +1,18 @@
 import z from "zod";
 
-export type Sample = {
+export type CommentType = {
+  id: number;
+  text: string;
+  created_at: string;
+};
+
+export type SampleType = {
   id: number;
   sampling_location: string;
-  sample_type: "water" | "chocolate" | "flour" | string;
+  sample_type: string;
   sampling_operator: string;
   sampling_date: string;
-  comment?: string;
+  comments?: CommentType[];
 };
 
 export type CreateSamplePayload = {

@@ -6,15 +6,10 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
-
-type Comment = {
-  id: number;
-  text: string;
-  created_at: string;
-};
+import type { CommentType } from "@/types/types";
 
 type CommentsTableProps = {
-  comments: Comment[];
+  comments: CommentType[];
 };
 
 export const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => (
@@ -22,7 +17,6 @@ export const CommentsTable: React.FC<CommentsTableProps> = ({ comments }) => (
     <TableHeader>
       <TableRow>
         <TableHead className="w-[160px]">Date&nbsp;</TableHead>
-        <TableHead>Text</TableHead>
       </TableRow>
     </TableHeader>
 

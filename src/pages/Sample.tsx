@@ -14,9 +14,9 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/layout/Layout";
 import Loader from "@/components/Loader";
 import { EditSampleModal } from "@/components/UpdateSamleModal";
-import { CommentsTable } from "@/components/CommentsTable";
 import { useGetSampleById } from "@/hooks/useGetSampleById";
 import { useDeleteSample } from "@/hooks/useDeleteSample";
+import { SampleInfos } from "@/components/SampleInfos";
 
 export const SampleDetails = () => {
   const { id } = useParams();
@@ -41,7 +41,7 @@ export const SampleDetails = () => {
       {isFetching ? (
         <Loader />
       ) : (
-        <Card className="shadow-lg min-w-xl space-y-4">
+        <Card className="shadow-lg min-w-xl space-y-4 font-sintony">
           <CardHeader className="flex justify-between">
             <div>
               <CardTitle className="text-2xl font-semibold">{id}</CardTitle>
@@ -49,46 +49,16 @@ export const SampleDetails = () => {
             </div>
             <Button
               variant="destructive"
-              className="rounded btn-animate"
+              className="rounded btn-animate text-md p-7"
               onClick={handleDelete}
             >
-              <Trash2 className="mr-2 h-4 w-4" />
+              <Trash2 className="h-4 w-4" />
               Delete
             </Button>
           </CardHeader>
 
           <CardContent>
-            <ul className="grid grid-cols-2 gap-y-3 text-base">
-              <li className="font-medium">Date:</li>
-              <li>
-                {new Date(sample.sampling_date).toLocaleString("fr-FR", {
-                  dateStyle: "short",
-                  timeStyle: "short",
-                })}
-              </li>
-
-              <li className="font-medium">Location:</li>
-              <li>{sample.sampling_location}</li>
-
-              <li className="font-medium">Type:</li>
-              <li className="capitalize">{sample.sample_type}</li>
-
-              <li className="font-medium">Operator:</li>
-              <li>{sample.sampling_operator}</li>
-
-              {sample.comments?.length ? (
-                <div className="mt-4 space-y-3">
-                  <p className="font-medium">
-                    Comments ({sample.comments?.length})&nbsp;:
-                  </p>
-                  {sample.comments.length && (
-                    <CommentsTable comments={sample.comments} />
-                  )}
-                </div>
-              ) : (
-                <p className="italic text-sm text-gray-500 mt-4">No comment.</p>
-              )}
-            </ul>
+            <SampleInfos sample={sample} />
           </CardContent>
 
           <CardFooter className="flex justify-end gap-2">

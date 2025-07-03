@@ -10,10 +10,10 @@ export const SampleTable: React.FC<SampleTableProps> = ({ samples }) => (
   <Table>
     <TableHeader>
       <TableRow>
-        <TableHead className="w-[100px] font-sintony text-2xl">ID</TableHead>
-        <TableHead className="font-sintony text-2xl">Location</TableHead>
-        <TableHead className="font-sintony text-2xl">Type</TableHead>
-        <TableHead className="font-sintony text-2xl">Date</TableHead>
+        <TableHead className="w-[100px] text-2xl">ID</TableHead>
+        <TableHead className="text-2xl">Location</TableHead>
+        <TableHead className="text-2xl">Type</TableHead>
+        <TableHead className="text-2xl">Date</TableHead>
       </TableRow>
     </TableHeader>
     <TableBody>

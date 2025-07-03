@@ -30,7 +30,7 @@ export const Home = () => {
             >
               Back
             </Button>
-            <span className="self-center font-medium">Page {page}</span>
+            <span className="self-center font-sintony">Page {page}</span>
             <Button
               variant="outline"
               disabled={data.length < 10}
