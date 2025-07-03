@@ -1,11 +1,11 @@
-# BioSamples Front-End
+# BioSamples Front
 
-Front-end client built with **Vite**, **React**, **Tailwind CSS**, and **shadcn/ui**.
+Client built with **Vite**, **React**, **Tailwind CSS**, and **shadcn/ui**.
 
 ## Prerequisites
 
 - Node 18 +
-- **pnpm** (preferably the latest stable release)
+- **pnpm**
 
 ## Getting started
 
