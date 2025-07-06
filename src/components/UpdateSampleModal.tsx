@@ -21,9 +21,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useUpdateSample } from "@/hooks/useUpdateSample";
 import { useAddComment } from "@/hooks/useAddComment";
-import type { BioSampleUpdate, Sample } from "@/types/types";
+import {
+  BioSampleUpdateSchema,
+  type BioSampleUpdate,
+  type SampleType,
+} from "@/types/types";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-type Props = { sample: Sample };
+type Props = { sample: SampleType };
 
 export const EditSampleModal: React.FC<Props> = ({ sample }) => {
   const navigate = useNavigate();
@@ -31,6 +36,7 @@ export const EditSampleModal: React.FC<Props> = ({ sample }) => {
   const { mutateAsync: addComment } = useAddComment();
 
   const form = useForm<BioSampleUpdate>({
+    resolver: zodResolver(BioSampleUpdateSchema),
     defaultValues: {
       sampling_location: sample.sampling_location,
       sample_type: sample.sample_type,

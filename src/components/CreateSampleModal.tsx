@@ -19,7 +19,8 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { useCreateSample } from "@/hooks/useCreateSample";
-import type { AddSampleFormType } from "@/types/types";
+import { AddSampleFormSchema, type AddSampleFormType } from "@/types/types";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const AddSampleModal = () => {
   const [open, setOpen] = useState(false);
@@ -27,6 +28,7 @@ export const AddSampleModal = () => {
   const { mutateAsync: createSample } = useCreateSample();
 
   const form = useForm<AddSampleFormType>({
+    resolver: zodResolver(AddSampleFormSchema),
     defaultValues: {
       sampling_location: "",
       sample_type: "",

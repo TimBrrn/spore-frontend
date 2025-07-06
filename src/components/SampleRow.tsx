@@ -2,10 +2,10 @@ import { useNavigate } from "react-router";
 
 import { TableCell, TableRow } from "./ui/table";
 import { cn } from "@/lib/utils";
-import type { Sample } from "@/types/types";
+import type { SampleType } from "@/types/types";
 
 interface SampleRowProps {
-  sample: Sample;
+  sample: SampleType;
 }
 
 export const SampleRow: React.FC<SampleRowProps> = ({ sample }) => {

@@ -1,9 +1,9 @@
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "./ui/table";
 import { SampleRow } from "./SampleRow";
-import type { Sample } from "@/types/types";
+import type { SampleType } from "@/types/types";
 
 interface SampleTableProps {
-  samples: Sample[];
+  samples: SampleType[];
 }
 
 export const SampleTable: React.FC<SampleTableProps> = ({ samples }) => (

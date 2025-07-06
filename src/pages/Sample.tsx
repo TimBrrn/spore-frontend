@@ -13,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Layout from "@/layout/Layout";
 import Loader from "@/components/Loader";
-import { EditSampleModal } from "@/components/UpdateSamleModal";
+import { EditSampleModal } from "@/components/UpdateSampleModal";
 import { useGetSampleById } from "@/hooks/useGetSampleById";
 import { useDeleteSample } from "@/hooks/useDeleteSample";
 import { SampleInfos } from "@/components/SampleInfos";
