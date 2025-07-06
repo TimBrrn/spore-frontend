@@ -14,7 +14,7 @@ export const createSample = async (payload: CreateSamplePayload) => {
   return res.json();
 };
 
-export const useCreateSample = (onDone?: () => void) => {
+export const useCreateSample = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
@@ -23,7 +23,6 @@ export const useCreateSample = (onDone?: () => void) => {
     onSuccess: () => {
       toast.success("Sample added!");
       queryClient.invalidateQueries({ queryKey: ["samples"] });
-      onDone?.();
       navigate("/");
     },
     onError: () => toast.error("Sample creation failed!"),

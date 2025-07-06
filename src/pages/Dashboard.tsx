@@ -7,11 +7,13 @@ import Loader from "@/components/Loader";
 import { SampleTable } from "@/components/SampleTable";
 import { Button } from "@/components/ui/button";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 6;
 
 export const Home = () => {
   const [page, setPage] = useState(1);
   const { data, isFetching } = useGetSamples(page, PAGE_SIZE);
+
+  const hasNext = data?.length === PAGE_SIZE;
 
   return (
     <Layout>
@@ -33,7 +35,7 @@ export const Home = () => {
             <span className="self-center font-sintony">Page {page}</span>
             <Button
               variant="outline"
-              disabled={data.length < 10}
+              disabled={!hasNext}
               onClick={() => setPage((p) => p + 1)}
             >
               Next

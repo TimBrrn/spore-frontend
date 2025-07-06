@@ -24,7 +24,24 @@ function App() {
           <Route path="/sample/:id" element={<SampleDetails />} />
         </Routes>
       </BrowserRouter>
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster
+        toastOptions={{
+          duration: 5000,
+          removeDelay: 1000,
+          style: {
+            background: "#2D2D2D",
+            color: "#FFFFFF",
+          },
+
+          success: {
+            duration: 3000,
+            iconTheme: {
+              primary: "green",
+              secondary: "black",
+            },
+          },
+        }}
+      />
     </QueryClientProvider>
   );
 }
